@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://yoursite.com/images/ss_sshchk.png">
 <meta property="og:image" content="http://yoursite.com/images/ss_sshportsetup.png">
-<meta property="og:updated_time" content="2019-08-13T14:17:10.652Z">
+<meta property="og:updated_time" content="2019-08-13T14:21:43.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝與設定openssh [Ubuntu Server]">
 <meta name="twitter:description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh   檢查防火牆1sudo ufw statu">
@@ -265,7 +265,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T14:17:10+00:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T14:21:43+00:00">
                 2019-08-13
               </time>
             
@@ -346,7 +346,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
 
 <p>將<em>#port 22</em>的註解拿掉並更改(假設我的改為2222)<br><img src="/images/ss_sshportsetup.png" alt="sshportsetup"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#重啟ssh server來更新設定</span></span><br><span class="line">sudo systemctl restart ssh</span><br><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#重啟ssh server來更新設定</span></span><br><span class="line">sudo systemctl restart ssh</span><br><span class="line">sudo systemctl status ssh</span><br><span class="line"><span class="comment">#檢查port是否更改成功</span></span><br><span class="line">sudo netstat -aptln | grep ssh</span><br></pre></td></tr></table></figure>
+
+<h2 id="連線"><a href="#連線" class="headerlink" title="連線"></a>連線</h2><blockquote>
+<p>ssh -p [port] [username]@[host]</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 2222 user@host.com.tw</span><br></pre></td></tr></table></figure>
 
 
       
@@ -506,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝OpenSSH-Server"><span class="nav-number">1.</span> <span class="nav-text">安裝OpenSSH Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查是否安裝成功"><span class="nav-number">2.</span> <span class="nav-text">檢查是否安裝成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查防火牆"><span class="nav-number">3.</span> <span class="nav-text">檢查防火牆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定"><span class="nav-number">4.</span> <span class="nav-text">設定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝OpenSSH-Server"><span class="nav-number">1.</span> <span class="nav-text">安裝OpenSSH Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查是否安裝成功"><span class="nav-number">2.</span> <span class="nav-text">檢查是否安裝成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查防火牆"><span class="nav-number">3.</span> <span class="nav-text">檢查防火牆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定"><span class="nav-number">4.</span> <span class="nav-text">設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#連線"><span class="nav-number">5.</span> <span class="nav-text">連線</span></a></li></ol></div>
             
 
           </div>
