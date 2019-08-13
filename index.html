@@ -326,6 +326,11 @@
 <p>在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，<br>便可以跳過這步驟</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更新apt套件</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<h2 id="檢查是否安裝成功"><a href="#檢查是否安裝成功" class="headerlink" title="檢查是否安裝成功"></a>檢查是否安裝成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/ss_sshchk.png" alt="sshchk"></p>
+
           
         
       
