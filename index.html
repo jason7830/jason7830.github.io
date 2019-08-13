@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T13:24:40+00:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T14:01:59+00:00">
                 2019-08-13
               </time>
             
@@ -330,6 +330,13 @@
 <h2 id="檢查是否安裝成功"><a href="#檢查是否安裝成功" class="headerlink" title="檢查是否安裝成功"></a>檢查是否安裝成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/ss_sshchk.png" alt="sshchk"></p>
+<h2 id="檢查防火牆"><a href="#檢查防火牆" class="headerlink" title="檢查防火牆"></a>檢查防火牆</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果防火牆有開啟的話則需另外新增規則給ssh</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br><span class="line">sudo ufw allow <span class="built_in">enable</span></span><br><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
 
           
         

@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh">
+<meta name="description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh   檢查防火牆1sudo ufw statu">
 <meta name="keywords" content="Hexo,Front-End">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安裝與設定openssh [Ubuntu Server]">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/安裝與設定openssh [Ubuntu Server]/index.html">
 <meta property="og:site_name" content="Programming Notes">
-<meta property="og:description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh">
+<meta property="og:description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh   檢查防火牆1sudo ufw statu">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://yoursite.com/images/ss_sshchk.png">
-<meta property="og:updated_time" content="2019-08-13T13:54:21.145Z">
+<meta property="og:updated_time" content="2019-08-13T14:01:59.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安裝與設定openssh [Ubuntu Server]">
-<meta name="twitter:description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh">
+<meta name="twitter:description" content="安裝OpenSSH Server 在安裝Ubuntu Server 18.04 時已經在安裝步驟安裝了OpenSSH Server，便可以跳過這步驟  123#更新apt套件sudo apt-get updatesudo apt-get install openssh-server  檢查是否安裝成功1sudo systemctl status ssh   檢查防火牆1sudo ufw statu">
 <meta name="twitter:image" content="http://yoursite.com/images/ss_sshchk.png">
 
 
@@ -264,7 +264,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T13:24:40+00:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-13T14:01:59+00:00">
                 2019-08-13
               </time>
             
@@ -332,6 +332,13 @@
 <h2 id="檢查是否安裝成功"><a href="#檢查是否安裝成功" class="headerlink" title="檢查是否安裝成功"></a>檢查是否安裝成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/ss_sshchk.png" alt="sshchk"></p>
+<h2 id="檢查防火牆"><a href="#檢查防火牆" class="headerlink" title="檢查防火牆"></a>檢查防火牆</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果防火牆有開啟的話則需另外新增規則給ssh</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br><span class="line">sudo ufw allow <span class="built_in">enable</span></span><br><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -490,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝OpenSSH-Server"><span class="nav-number">1.</span> <span class="nav-text">安裝OpenSSH Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查是否安裝成功"><span class="nav-number">2.</span> <span class="nav-text">檢查是否安裝成功</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝OpenSSH-Server"><span class="nav-number">1.</span> <span class="nav-text">安裝OpenSSH Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查是否安裝成功"><span class="nav-number">2.</span> <span class="nav-text">檢查是否安裝成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檢查防火牆"><span class="nav-number">3.</span> <span class="nav-text">檢查防火牆</span></a></li></ol></div>
             
 
           </div>
