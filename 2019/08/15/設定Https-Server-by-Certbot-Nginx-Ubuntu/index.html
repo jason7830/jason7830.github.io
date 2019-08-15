@@ -87,7 +87,7 @@
 <meta property="og:description" content="前言在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該讓自己的Server取得SSL憑證，做了一下研究後決定取得Let’s Encrypt的憑證  Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg">
-<meta property="og:updated_time" content="2019-08-15T14:21:36.874Z">
+<meta property="og:updated_time" content="2019-08-15T14:24:53.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="設定Https Server by Certbot &amp; Nginx [Ubuntu]">
 <meta name="twitter:description" content="前言在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該讓自己的Server取得SSL憑證，做了一下研究後決定取得Let’s Encrypt的憑證  Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為">
@@ -323,7 +323,7 @@
 <p>安裝Certbot</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#必須先將Cerbot的PPA加入套件清單</span></span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo add-apt-repository ppa:certbot/certbot</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment">#清單加入後安裝</span></span><br><span class="line">sudo apt-get install certbot python-certbot-nginx</span><br></pre></td></tr></table></figure>
 
-<p>安裝完成後有兩種方式可以選擇如何執行Certbot</p>
+<h2 id="執行"><a href="#執行" class="headerlink" title="執行"></a>執行</h2><p>安裝完成後有兩種方式可以選擇如何執行Certbot</p>
 <ol>
 <li><p>自動修改Nginx的設定並取得憑證和開啟HTTPS，全部只需一個步驟</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
@@ -333,7 +333,7 @@
 
 </li>
 </ol>
-<p>現在Certbot在Systemd設置了一個timer，會自動在憑證失效前更新。<br>也可以使用下面的指令來測試</p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>現在Certbot在Systemd設置了一個timer，會自動在憑證失效前更新。<br>也可以使用下面的指令來測試</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></table></figure>
 
 
@@ -502,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt是一個免費且自動化的CA-憑證發行機構-，旨為公共利益，由ISRG提供的服務"><span class="nav-number">1.1.</span> <span class="nav-text">Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為公共利益，由ISRG提供的服務</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭配Certbot工具替Server自動取得和更新憑證"><span class="nav-number">1.2.</span> <span class="nav-text">搭配Certbot工具替Server自動取得和更新憑證</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝"><span class="nav-number">2.</span> <span class="nav-text">安裝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt是一個免費且自動化的CA-憑證發行機構-，旨為公共利益，由ISRG提供的服務"><span class="nav-number">1.1.</span> <span class="nav-text">Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為公共利益，由ISRG提供的服務</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭配Certbot工具替Server自動取得和更新憑證"><span class="nav-number">1.2.</span> <span class="nav-text">搭配Certbot工具替Server自動取得和更新憑證</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝"><span class="nav-number">2.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行"><span class="nav-number">3.</span> <span class="nav-text">執行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#測試"><span class="nav-number">4.</span> <span class="nav-text">測試</span></a></li></ol></div>
             
 
           </div>

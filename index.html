@@ -322,7 +322,7 @@
 <p>安裝Certbot</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#必須先將Cerbot的PPA加入套件清單</span></span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo add-apt-repository ppa:certbot/certbot</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment">#清單加入後安裝</span></span><br><span class="line">sudo apt-get install certbot python-certbot-nginx</span><br></pre></td></tr></table></figure>
 
-<p>安裝完成後有兩種方式可以選擇如何執行Certbot</p>
+<h2 id="執行"><a href="#執行" class="headerlink" title="執行"></a>執行</h2><p>安裝完成後有兩種方式可以選擇如何執行Certbot</p>
 <ol>
 <li><p>自動修改Nginx的設定並取得憑證和開啟HTTPS，全部只需一個步驟</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
@@ -332,7 +332,7 @@
 
 </li>
 </ol>
-<p>現在Certbot在Systemd設置了一個timer，會自動在憑證失效前更新。<br>也可以使用下面的指令來測試</p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>現在Certbot在Systemd設置了一個timer，會自動在憑證失效前更新。<br>也可以使用下面的指令來測試</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></table></figure>
 
 
