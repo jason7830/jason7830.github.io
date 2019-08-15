@@ -300,17 +300,10 @@
       
         
           
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，<br>網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程<br>每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該<br>讓自己的Server取得SSL憑證，做了一下研究後決定取得<strong>Let’s Encrypt</strong>的憑證</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該讓自己的Server取得SSL憑證，做了一下研究後決定取得<strong>Let’s Encrypt</strong>的憑證</p>
 <h2 id><a href="#" class="headerlink" title></a><img src="https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg" alt="Let&#39;s Encrypt"></h2><p>Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為公共利益，由ISRG提供的服務</p>
-<p>`<br>官方中提到的幾項特點</p>
-<ul>
-<li>免費：任何網站擁有者都可以免費取得憑證</li>
-<li>自動化：Server端的程式可以輕鬆無痛的取得憑證，且可以自動在憑證失效前renew</li>
-<li>安全：Let’s Encrypt作為一個平台提供一個提昇TLS(傳輸層安全協定)的最佳解，不論對憑證方或是網站管理者都可以有效地保護他們的網站</li>
-<li>透明：所有發行和撤銷的憑證都會公開的紀錄使任何人都可以檢閱</li>
-<li>公開：自動化發行和更新憑證的協議會公開發表讓其他人可以採用</li>
-<li>合作：Let’s Encrypt更像是個底層的網路協議本身一樣，是整個社群的共同利益而不受任何組織控制<br>`</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">官方中提到的幾項特點</span><br><span class="line"></span><br><span class="line">* 免費：任何網站擁有者都可以免費取得憑證</span><br><span class="line">* 自動化：Server端的程式可以輕鬆無痛的取得憑證，且可以自動在憑證失效前renew</span><br><span class="line">* 安全：Let&apos;s Encrypt作為一個平台提供一個提昇TLS(傳輸層安全協定)的最佳解，不論對憑證方或是網站管理者都可以有效地保護他們的網站</span><br><span class="line">* 透明：所有發行和撤銷的憑證都會公開的紀錄使任何人都可以檢閱</span><br><span class="line">* 公開：自動化發行和更新憑證的協議會公開發表讓其他人可以採用</span><br><span class="line">* 合作：Let&apos;s Encrypt更像是個底層的網路協議本身一樣，是整個社群的共同利益而不受任何組織控制</span><br></pre></td></tr></table></figure>
+
 
           
         
