@@ -87,7 +87,7 @@
 <meta property="og:description" content="前言在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該讓自己的Server取得SSL憑證，做了一下研究後決定取得Let’s Encrypt的憑證  Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg">
-<meta property="og:updated_time" content="2019-08-15T13:58:23.032Z">
+<meta property="og:updated_time" content="2019-08-15T14:19:07.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="設定Https Server by Certbot &amp; Nginx [Ubuntu]">
 <meta name="twitter:description" content="前言在使用linebot-sdk寫機器人時，官方要求Server必須為SSL連線，網路上大多教學都是使用Heroku部署網站來解決這個問題，然而在開發過程每次微調測試都得要deploy到Heroku上，對我來說相當方便，決定果然還是該讓自己的Server取得SSL憑證，做了一下研究後決定取得Let’s Encrypt的憑證  Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為">
@@ -311,8 +311,31 @@
 <li><strong>安全</strong>：Let’s Encrypt作為一個平台提供一個提昇TLS(傳輸層安全協定)的最佳解，不論對憑證方或是網站管理者都可以有效地保護他們的網站</li>
 <li><strong>透明</strong>：所有發行和撤銷的憑證都會公開的紀錄使任何人都可以檢閱</li>
 <li><strong>公開</strong>：自動化發行和更新憑證的協議會公開發表讓其他人可以採用</li>
-<li><strong>合作</strong>：Let’s Encrypt更像是個底層的網路協議本身一樣，是整個社群的共同利益而不受任何組織控制`</li>
+<li><strong>合作</strong>：Let’s Encrypt更像是個底層的網路協議本身一樣，是整個社群的共同利益而不受任何組織控制</li>
 </ul>
+<h3 id="搭配Certbot工具替Server自動取得和更新憑證"><a href="#搭配Certbot工具替Server自動取得和更新憑證" class="headerlink" title="搭配Certbot工具替Server自動取得和更新憑證"></a>搭配Certbot工具替Server自動取得和更新憑證</h3><hr>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>這裡選擇Nginx套件作為Server服務</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br><span class="line"><span class="comment">#安裝完成後會自行在port80啟動服務</span></span><br><span class="line">sudo netstat -apnlt |grep nginx</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>這裡只簡單的安裝先不做其他設定的動作</p>
+</blockquote>
+<p>安裝Certbot</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#必須先將Cerbot的PPA加入套件清單</span></span><br><span class="line">sudo apt-get install software-properties-common</span><br><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo add-apt-repository ppa:certbot/certbot</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment">#清單加入後安裝</span></span><br><span class="line">sudo apt-get install certbot python-certbot-nginx</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後有兩種方式可以選擇如何執行Certbot</p>
+<ol>
+<li><p>自動修改Nginx的設定並取得憑證和開啟HTTPS，全部只需一個步驟</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot --nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只取得憑證，必須手動設定Nginx的設定</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot certonly --nginx</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>現在Certbot在Systemd設置了一個timer，會自動在憑證失效前更新。<br>也可以使用下面的指令來測試</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo certbot renew --dry-run</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -479,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt是一個免費且自動化的CA-憑證發行機構-，旨為公共利益，由ISRG提供的服務"><span class="nav-number">1.1.</span> <span class="nav-text">Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為公共利益，由ISRG提供的服務</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Let’s-Encrypt是一個免費且自動化的CA-憑證發行機構-，旨為公共利益，由ISRG提供的服務"><span class="nav-number">1.1.</span> <span class="nav-text">Let’s Encrypt是一個免費且自動化的CA(憑證發行機構)，旨為公共利益，由ISRG提供的服務</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭配Certbot工具替Server自動取得和更新憑證"><span class="nav-number">1.2.</span> <span class="nav-text">搭配Certbot工具替Server自動取得和更新憑證</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝"><span class="nav-number">2.</span> <span class="nav-text">安裝</span></a></li></ol></div>
             
 
           </div>
