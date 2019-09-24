@@ -229,6 +229,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/LSTM解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YoYojackson">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/IMG_1579.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Programming Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/24/LSTM解析/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-09-24T14:43:25+00:00">
+                2019-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: LSTM解析<br>date: 2019-09-24 14:42:58</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h1 id="解析LSTM"><a href="#解析LSTM" class="headerlink" title="解析LSTM"></a>解析LSTM</h1><div style="width:80%">
+所有的RNN網路都裡都有著一連串重複的module形成一個鏈型態。而裡面的結構通常都很簡單，可能包含一個tanh函數而已。
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png">
+<p style="text-align:center;font-weight:bold;">標準的RNN裡含有一個網路層</p>
+LSTM也有著類似的鏈型態，但是不同於一般的RNN它的內部更加複雜。
+<br>
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png">
+<p style="text-align:center;font-weight:bold;">LSTM裡有四個網路層</p>
+LSTM除了hidden state還多了一個cell state。透過模擬閘門開關來決定需要遺忘及留下的資訊。
+</div>
+
+
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><div>
+LSTM的first step就是遺忘閘，決定我們要從cell state遺忘哪些資訊。透過一個Sigmoid Layer決定遺忘的程度。
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png">
+<br>
+下一個step就是決定要將那些新的資訊儲存在cell state裡。這裡分成兩個部分，首先一個Sigmoid Layer(也稱作輸入閘)來決定更新哪些值，接下來透過一個Tanh Layer得到將要加入的候選值。
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png">
+<br>
+最後將上面的結果全部結合起來，就可以得到當前狀態t的cell state了
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png">
+<br>
+最後根據我們的cell state來決定我們的輸出h<sub>t</sub>。首先透過一Sigmoid Layer決定我們要輸出哪些部分的cell state，再來透過一個Tanh Layer使cell state介於-1到1之間，並將兩層的結果相乘，就可以只輸出我們要的部分了。
+<img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png">
+</div>-
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/設定Https-Server-by-Certbot-Nginx-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,7 +854,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
