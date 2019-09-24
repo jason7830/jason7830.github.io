@@ -300,7 +300,7 @@
       
         
           
-            <h1 id="解析LSTM"><a href="#解析LSTM" class="headerlink" title="解析LSTM"></a>解析LSTM</h1><div style="width:80%">
+            <h1 id="解析LSTM"><a href="#解析LSTM" class="headerlink" title="解析LSTM"></a>解析LSTM</h1><div>
 所有的RNN網路都裡都有著一連串重複的module形成一個鏈型態。而裡面的結構通常都很簡單，可能包含一個tanh函數而已。
 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-SimpleRNN.png">
 <p style="text-align:center;font-weight:bold;">標準的RNN裡含有一個網路層</p>
@@ -312,19 +312,25 @@ LSTM除了hidden state還多了一個cell state。透過模擬閘門開關來決
 </div>
 
 
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><div>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step.1"></a>Step.1</h2><div>
 LSTM的first step就是遺忘閘，決定我們要從cell state遺忘哪些資訊。透過一個Sigmoid Layer決定遺忘的程度。
 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-f.png">
 <br>
+</div>
+
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step.2"></a>Step.2</h2><div>
 下一個step就是決定要將那些新的資訊儲存在cell state裡。這裡分成兩個部分，首先一個Sigmoid Layer(也稱作輸入閘)來決定更新哪些值，接下來透過一個Tanh Layer得到將要加入的候選值。
 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-i.png">
 <br>
 最後將上面的結果全部結合起來，就可以得到當前狀態t的cell state了
 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-C.png">
 <br>
+</div>
+
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step.3"></a>Step.3</h2><div>
 最後根據我們的cell state來決定我們的輸出h<sub>t</sub>。首先透過一Sigmoid Layer決定我們要輸出哪些部分的cell state，再來透過一個Tanh Layer使cell state介於-1到1之間，並將兩層的結果相乘，就可以只輸出我們要的部分了。
 <img src="http://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-focus-o.png">
-</div>-
+</div>
 
           
         
